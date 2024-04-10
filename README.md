@@ -421,20 +421,54 @@ body: {
 
 # Setup
 
-1. Clone the repository:
-   Get the repo locally to setup the developement server by simply running `git clone https://github.com/rishbh-arora/newsAPI`
+1.  Clone the repository:
+    Get the repo locally to setup the server by simply running `git clone https://github.com/rishbh-arora/newsAPI`
 
-2. Installing dependencies:
-   Install all required libraries and dependencies by running `pip install -r requirements.txt`
+2.  Installing dependencies:
+    Install all required libraries and dependencies by running `pip install -r requirements.txt`
 
-3. Configuring the environment variables:
-   The connection string for the database must be stored in `path/to/base/directory/.env` as `MONGO_CONNETION_STRING=<YOUR_CONNECTION_STRING>`. In this case, the `.env` file should be in the same directory as `manage.py`
+3.  Configuring the environment variables:
+    The connection string for the database must be stored in `path/to/base/directory/.env`.
 
-4. Create migrations:
-   Make migration configurations for all models(database schemas) by running `python manage.py makemigrations`
+    ```
+    SECRET_KEY={YOUR_SECRET_KEY}
+    DB_NAME={YOUR_DATABASE_NAME}
+    DB_USER={YOUR_DATABASE_USERNAME}
+    DB_PASSWORD={YOUR_DB_PASSWORD}
+    DB_HOST={YOUR_DB_HOSTURL}
+    DB_PORT={YOUR_DB_PORT}
+    ```
 
-5. Migrate to database:
-   Run the migration using `python manage.py migrate`
+    In this case, the `.env` file should be in the same directory as `manage.py`
 
-6. Start server:
-   Finally, start the server on local host using `python manage.py runserver`
+4.  Create migrations:
+    Make migration configurations for all models(database schemas) by running `python manage.py makemigrations`
+
+5.  Migrate to database:
+    Run the migration using `python manage.py migrate`
+
+6.  Super user:
+    Create a super user which will hold admin roles and can manage admin panel `python manage.py createsuperuser`
+7.  Production/Developement:
+
+    1. To run the server as a Production server, Ensure the following settings in settings.py:
+
+    ```
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    DEBUG = False
+    ```
+
+    Finally, start the server on local host using gunicorn newsapi.wsgi
+
+    2. To run the server as a developement server: 1. Ensure the following settings in settings.py:
+
+    ```
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    DEBUG = False
+    ```
+
+    Finally, start the server on local host using `python manage.py runserver`
