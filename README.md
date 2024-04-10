@@ -15,7 +15,7 @@ Base API URL:
 
   ```
   body: {
-      "username": "John_doe",
+      "username": "John_doe",v
       "password": "Johnpa"
   }
   ```
@@ -422,7 +422,7 @@ body: {
 # Setup
 
 1. Clone the repository:
-   Get the repo locally to setup the developement server by simply running `git clone https://github.com/rishbh-arora/jwtauth-django`
+   Get the repo locally to setup the developement server by simply running `git clone https://github.com/rishbh-arora/newsAPI`
 
 2. Installing dependencies:
    Install all required libraries and dependencies by running `pip install -r requirements.txt`

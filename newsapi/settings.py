@@ -88,12 +88,12 @@ WSGI_APPLICATION = 'newsapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'news',
-        'USER': 'newuser',
-        'PASSWORD': 'manvswild',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': f'{os.environ["DB_NAME"]}',
+        'USER': f'{os.environ["postgres"]}',
+        'PASSWORD': f'{os.environ["DB_PASSWORD"]}',
+        'HOST': f'{os.environ["DB_HOST"]}',
+        'PORT': f'{os.environ["DB_PORT"]}'
     }
 }
 
